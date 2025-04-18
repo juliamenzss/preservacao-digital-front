@@ -1,0 +1,20 @@
+@import '../../../../styles/variables';
+
+.arrowContainer {
+    position: absolute;
+    top: 16px;
+    left: 24px;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  
+    span {
+      font-size: 32px;
+      color: $text;
+    }
+  }
+  

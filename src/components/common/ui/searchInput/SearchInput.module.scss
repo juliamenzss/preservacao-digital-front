@@ -1,0 +1,50 @@
+@import '../../../../styles/variables';
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    margin-right: 72px;
+    background-color: white;
+    border: 1px solid rgb(206, 202, 202);
+    border-radius: 12px;
+    padding: 8px 12px;
+    width: 100%;
+    max-width: 420px;
+  }
+  
+  .searchIcon {
+    color: $text;
+    font-size: 20px;
+    margin-right: 8px;
+  }
+  
+  .searchInput {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    width: 100%;
+  
+    &::placeholder {
+      color: $text;
+    }
+  }
+.select {
+  border: none;
+  outline: none;
+  padding: 6px 6px;
+  font-size: 14px;
+  color: $text;
+  background-color: $background;
+  border-radius: 8px;
+  margin-left: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:focus {
+    background-color: $background;
+    cursor: pointer;
+  }
+}
+.select option {
+  font-size: 14px;
+}

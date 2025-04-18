@@ -1,0 +1,67 @@
+@import "../../../../styles/variables";
+
+.contentCard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 1050px;
+    height: 50px;
+    padding: 0px 24px;
+    background-color: rgb(252, 252, 252);
+    justify-content: space-between;
+}
+
+.card p {
+    font-size: 14px;
+    font-weight: 400;
+    color: $text;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .fieldId {
+    padding-left: 2px;
+    width: 180px;
+  }
+  
+  .fieldName {
+    padding-left: 40px;
+    width: 340px;
+  }
+  
+  .fieldDate {
+    padding-left: 60px;
+    width: 190px;
+  }
+
+
+.contentIcons {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
+
+.icon {
+    cursor: pointer;
+    font-size: 32px !important;
+    margin: 4px 8px;
+    color: $primary;
+    background-color: white;
+    border: 1px solid #d1d1d1;
+    border-radius: 8px;
+    transition: 0.2s;
+    padding: 4px;
+
+    &:hover {
+        background-color: #e4e4e4;
+        color: $secondary;
+        
+    }
+}

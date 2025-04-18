@@ -1,0 +1,25 @@
+@import '../../../../styles/variables';
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 12px 0 0 0  ;
+    color: #999;
+    max-width: 280px;
+    margin: 2px 8px;
+  
+    div {
+      flex: 1;
+      height: 0.5px;
+      background-color: #ccc;
+    }
+  
+    span {
+      font-size: 14px;
+      color: #999;
+      padding: 0 6px;
+      
+    }
+  }
+  

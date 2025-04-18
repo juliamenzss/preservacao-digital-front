@@ -1,0 +1,14 @@
+.containerContent {
+    display: flex;
+    height: 100vh;
+}
+
+.contentArea {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.mainContent {
+    flex: 1;
+}

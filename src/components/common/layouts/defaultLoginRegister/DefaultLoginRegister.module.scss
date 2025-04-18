@@ -1,0 +1,62 @@
+@import '../../../../styles/variables';
+
+.containerContent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 180px;
+}
+
+.imgContainer .backgroundImage {
+  width: 650px;
+  max-height: 100vh;
+  display: block;
+}
+
+.logo {
+  top: 2rem;
+  left: 2rem;
+  position: absolute;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 400px;
+  width: 100%;
+  flex-grow: 1;
+
+
+  .titleSubtitle {
+    color: $text;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 60px 0 16px 0;
+
+    h2 {
+      font-size: 28px;
+      font-weight: bold;
+      color: $text;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: normal;
+    }
+  }
+}
+.arrowContainer {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  z-index: 9999;
+  cursor: pointer;
+
+  span {
+    font-size: 30px;
+    color: black;
+  }
+}

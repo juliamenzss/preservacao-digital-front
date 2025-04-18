@@ -1,0 +1,37 @@
+.contentBadge{
+  display: flex;
+  justify-content: center;
+  width: 120px;
+  margin-left: auto;
+}
+
+.badge {
+    padding: 6px;
+    width: 90px;
+    height: 28px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: capitalize;
+    border: 1px solid;
+    text-align: center;
+  }
+  
+  .Falha {
+    color: #e74c3c;
+    background-color: #fdecea;
+    border-color: #e74c3c;
+  }
+  
+  .Preservado {
+    color: #2ecc71;
+    background-color: #eafaf1;
+    border-color: #2ecc71;
+  }
+  
+  .Iniciada {
+    color: #f39c12;
+    background-color: #fef5e7;
+    border-color: #f39c12;
+  }
+  
