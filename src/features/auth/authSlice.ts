@@ -6,19 +6,36 @@ interface AuthState{
     loading: boolean;
     error: string | null;
     success: boolean;
+    user: any,
+    token: null,
   };
 
 const initialState: AuthState = {
-    userToken: null,
+    userToken: localStorage.getItem("userToken") || null,
     loading: false,
     error: null,
-    success: false
+    success: false,
+    user: null,
+    token: null,
 };
 
 const authSlice = createSlice({
     name: 'auth',
     initialState,
-    reducers: {},
+    reducers: {
+      resetAuthState: (state) => {
+        state.success = false;
+        state.error = null;
+        state.loading = false;
+      },
+      logout: (state) => {
+        state.userToken = null;
+        state.user = null;
+        state.success = false;
+        state.error = null;
+        state.loading = false;
+        localStorage.removeItem("token")},},
+
     extraReducers: (builder) => {
         builder
           .addCase(registerUser.pending, (state) => {
@@ -30,6 +47,8 @@ const authSlice = createSlice({
             state.success = true;
             state.error = null;
             state.userToken = action.payload.token;
+            state.user = action.payload.user;
+            localStorage.setItem("token", action.payload.token);
           })
           .addCase(registerUser.rejected, (state, action) => {
             state.loading = false;
@@ -45,6 +64,7 @@ const authSlice = createSlice({
             state.loading = false;
             state.success = true;
             state.userToken = action.payload.token;
+            localStorage.setItem("token", action.payload.token);
           })
           .addCase(loginUser.rejected, (state, action) => {
             state.loading = false;
@@ -53,4 +73,5 @@ const authSlice = createSlice({
         },
 });
 
+export const { resetAuthState, logout } = authSlice.actions;
 export default authSlice.reducer;

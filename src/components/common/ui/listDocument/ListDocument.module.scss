@@ -16,7 +16,7 @@
 }
 
 .descriptionList {
-    width: 1050px;
+    width: 90%;
     height: 34px;
     padding: 8px 24px;
     background-color: rgb(255, 255, 255);
@@ -34,19 +34,18 @@
   }
   .fieldId {
     padding-left: 2px;
-    width: 180px;
+    width: 160px;
   }
   .fieldName {
-    padding-left: 40px;
-    width: 340px;
+    padding-left: 60px;
+    width: 360px;
   }
   .fieldDate {
     padding-left: 60px;
     width: 190px;
   }
   .fieldStatus {
-    padding-left: 60px;
-    width: 190px;
+    padding-left: 110px;
   }
 
 .dividerCard{
@@ -58,7 +57,7 @@
 .containerListCard {
   display: flex;
   flex-direction: column;
-  width: 1050px;
+  width: 90%;
   max-width: 100%;
   height: 300px;
   overflow: visible;

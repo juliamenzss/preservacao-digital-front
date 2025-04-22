@@ -20,6 +20,7 @@ export const registerUser = createAsyncThunk(
         "http://localhost:3000/auth/register",
         userData
       );
+      console.log("RESPONSE LOGIN:", response.data); 
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue("Erro ao registrar conta");
@@ -41,3 +42,4 @@ export const loginUser = createAsyncThunk(
     }
   }
 );
+

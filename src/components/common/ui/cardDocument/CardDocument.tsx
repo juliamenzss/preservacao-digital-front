@@ -2,6 +2,7 @@ import styles from './CardDocument.module.scss';
 import SearchIcon from '@mui/icons-material/Search';
 import DownloadIcon from '@mui/icons-material/Download';
 import StatusBadge from '../statusBadge/StatusBadge';
+import { useNavigate } from 'react-router-dom';
 
 type CardDocumentProps = {
     id: string;
@@ -11,6 +12,11 @@ type CardDocumentProps = {
 }
 
 const CardDocument = ({ id, name, date, status }: CardDocumentProps) => {
+  
+  const navigate = useNavigate();
+  const handleViewDetails = () => {
+    navigate(`/documentos/${id}`)
+  }
   return (
     <section className={styles.contentCard}>
     <div className={styles.card}>
@@ -22,7 +28,7 @@ const CardDocument = ({ id, name, date, status }: CardDocumentProps) => {
     status={status}
     />
       <div className={styles.contentIcons}>
-        <SearchIcon className={styles.icon} />
+        <div onClick={handleViewDetails}><SearchIcon className={styles.icon} /></div>
         <DownloadIcon className={styles.icon} />
       </div>
       </div>

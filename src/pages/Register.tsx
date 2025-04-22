@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { registerUser } from "../features/auth/authActions"; 
 import { AppDispatch } from '../store/store';
+import { resetAuthState } from '../features/auth/authSlice';
 
 
 const Register = () => {
@@ -27,6 +28,7 @@ const Register = () => {
         if(success && userToken){
             localStorage.setItem("jwt_token", userToken);
             toast.success("Conta criada com sucesso!");
+            dispatch(resetAuthState());
             navigate(location.state?.from || "/");
         }
         if (error && typeof error === "string") {

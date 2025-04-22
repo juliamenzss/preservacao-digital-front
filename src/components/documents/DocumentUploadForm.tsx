@@ -8,6 +8,7 @@ import { AppDispatch } from "../../store/store";
 import { uploadDocument } from "../../features/document/documentActions"; 
 import { toast } from "react-toastify";
 import { resetDocumentState } from "../../features/document/documentSlice";
+import { DocumentPayload } from "../../features/document/documentTypes";
 
 const DocumentUploadForm = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -15,35 +16,35 @@ const DocumentUploadForm = () => {
   const location = useLocation();
 
   const { success, error, userToken }  = useSelector(
-    (state: any) => state.auth
+    (state: any) => state.document
   );
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<DocumentPayload>({
     name: '',
-    file: null as File| null,
+    file: null,
     author: '',
     description: '',
     keywords: '',
     category: '',
-    metadados: {} as Record<string, any>,
   });
-
+  
   const submitForm = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const data = new FormData();
+
+    data.append('name', formData.name);
+    data.append('author', formData.author);
+    data.append('description', formData.description);
+    data.append('keywords', formData.keywords);
+    data.append('category', formData.category);
+
     if(!formData.file){
       toast.error("Por favor, adicione um arquivo!");
       return;
     }
-    const document = new FormData();
-
-    document.append("name", formData.name)
-    document.append("author", formData.author)
-    document.append("description", formData.description)
-    document.append("category", formData.category)
-    document.append("keywords", formData.keywords)
-    document.append("file", formData.file)
-    document.append("metadados", JSON.stringify(formData.metadados));
-    dispatch(uploadDocument(document))
+    data.append('file', formData.file);
+    dispatch(uploadDocument(data))
   };
 
  useEffect(() => {
@@ -123,6 +124,7 @@ function handleChange(e: ChangeEvent<HTMLInputElement>) {
               value={formData.description}
             />
             <input
+              style={{cursor: "pointer"}}
               name="file"
               className={styles.inputFile}
               type="file"

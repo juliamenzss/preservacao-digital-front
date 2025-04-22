@@ -3,8 +3,6 @@ import DefaultLayoutHome from "../components/common/layouts/defaultHome/DefaultL
 const Home = () => {
   return (
    <DefaultLayoutHome />
-    
-   
   )
 }
 

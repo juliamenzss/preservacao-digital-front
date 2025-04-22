@@ -1,8 +1,7 @@
 import styles from './Input.module.scss';
 
-
 type InputProps = {
-    type: 'text' | 'email';
+    type: 'text' | 'email' |'password';
     placeholder?: string;
     value: string;
     label: string;

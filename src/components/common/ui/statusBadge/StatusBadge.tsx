@@ -1,11 +1,11 @@
-import styles from "./statusBadge.module.scss"
+import styles from "./StatusBadge.module.scss"
 
-type StatusBadge = {
+type StatusBadgeProps = {
   label: string;
   status: "Iniciada" | "Preservado" | "Falha";
 };
 
-const statusBadge = ({ label, status }: StatusBadge) => {
+const StatusBadge = ({ label, status }: StatusBadgeProps) => {
   return <>
   <section className={styles.contentBadge}>
   <span className={`${styles.badge} ${styles[status]}`}>{label}</span>
@@ -13,4 +13,4 @@ const statusBadge = ({ label, status }: StatusBadge) => {
   </>
 }
 
-export default statusBadge;
+export default StatusBadge;

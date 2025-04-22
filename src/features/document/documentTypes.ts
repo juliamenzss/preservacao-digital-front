@@ -1,9 +1,8 @@
 export interface DocumentPayload {
     name: string;
-    file: File;
-    author?: string;
-    description?: string;
-    keywords?: string;
-    category?: string;
-    metadados: JSON;
+    file: any
+    author: string;
+    description: string;
+    keywords: string;
+    category: string;
   }

@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../store/store";
 import { toast } from "react-toastify";
 import { loginUser } from "../features/auth/authActions";
+import { resetAuthState } from "../features/auth/authSlice";
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -24,6 +25,7 @@ const Login = () => {
         if(success && userToken){
             localStorage.setItem("jwt_token", userToken);
             toast.success("Login efetuado com sucesso!");
+            dispatch(resetAuthState());
             navigate(location.state?.from || "/");
         }
         if(error){
@@ -40,11 +42,11 @@ const Login = () => {
         dispatch(loginUser(user));
     }
 
-
     return (
         <form onSubmit={submitForm}>
         <DefaultLoginRegister title="Bem vindo de volta!" subtitle="Acesse sua conta para continuar.">
             <Input
+                name="email"
                 label="Email"
                 type="text"
                 placeholder="Digite seu e-mail"
@@ -52,8 +54,9 @@ const Login = () => {
                 onChange={(e) => setEmail(e.target.value)}
             />
             <Input
+                name="password"
                 label="Senha"
-                type="text"
+                type="password"
                 placeholder="Digite sua senha"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

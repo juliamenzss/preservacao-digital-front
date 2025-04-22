@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { uploadDocument, getDocuments } from "./documentActions";
+import { getDocuments, uploadDocument } from "./documentActions";
 
 interface DocumentState {
   loading: boolean;
@@ -24,6 +24,9 @@ const documentSlice = createSlice({
       state.error = null;
       state.loading = false;
     },
+    setMockDocuments: (state, action) => {
+      state.documents = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -33,8 +36,13 @@ const documentSlice = createSlice({
       })
       .addCase(uploadDocument.fulfilled, (state, action) => {
         state.loading = false;
-        state.documents.push(action.payload);
         state.success = true;
+        const existingDocumentIndex = state.documents.findIndex(
+          (doc) => doc.id === action.payload.id
+        );
+        if (existingDocumentIndex === -1) {
+          state.documents.push(action.payload);
+        }
       })
       .addCase(uploadDocument.rejected, (state, action) => {
         state.loading = false;
@@ -46,7 +54,7 @@ const documentSlice = createSlice({
       })
       .addCase(getDocuments.fulfilled, (state, action) => {
         state.loading = false;
-        state.documents.push(action.payload);
+        state.documents = action.payload;
       })
       .addCase(getDocuments.rejected, (state, action) => {
         state.loading = false;
@@ -55,5 +63,5 @@ const documentSlice = createSlice({
   },
 });
 
-export const { resetDocumentState } = documentSlice.actions;
+export const { resetDocumentState, setMockDocuments } = documentSlice.actions;
 export default documentSlice.reducer;
